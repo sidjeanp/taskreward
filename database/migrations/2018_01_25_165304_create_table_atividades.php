@@ -26,7 +26,7 @@ class CreateTableAtividades extends Migration
             $table->json('dia');
             $table->json('hora');
 
-            $table->primary(['id_users','id']);
+            //$table->primary(['id_users','id']);
             $table->index('flgAtivo');
 
             //$table->foreign('id_user')

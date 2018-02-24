@@ -20,7 +20,7 @@ class CreateTableAtividadesPadrao extends Migration
             $table->string('titulo',70);
             $table->string('descricao',140);
 
-            $table->primary('id');
+            //$table->primary('id');
 
             $table->index('titulo','idxTitulo');
             $table->index('flgAtivo');

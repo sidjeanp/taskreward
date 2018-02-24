@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use app\User;
+use App\User;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -12,23 +12,26 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('users')->delete();
+
+        User::truncate();
 
         $user = new User();
 
         $user->name = 'Sidnei Carlos';
         $user->email = 'sidjeanp@gmail.com';
-        $user->password = brypt('123456');
+        $user->password = bcrypt('123456');
         $user->save();
 
+        $user = new User();
         $user->name = 'Ivani Fernandes';
         $user->email = 'ifernandes.saude@ymail.com';
-        $user->password = brypt('123456');
+        $user->password = bcrypt('123456');
         $user->save();
 
+        $user = new User();
         $user->name = 'Álvaro Carlos';
         $user->email = 'teteco@gmail.com';
-        $user->password = brypt('123456');
+        $user->password = bcrypt('123456');
         $user->save();
 
 

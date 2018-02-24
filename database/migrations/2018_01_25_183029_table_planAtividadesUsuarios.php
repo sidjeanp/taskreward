@@ -20,7 +20,7 @@ class TablePlanAtividadesUsuarios extends Migration
             $table->integer('flgAtivo');
             $table->json('atribuicao');
 
-            $table->primary(['id_users']);
+            //$table->primary(['id_users']);
 
             $table->index('flgAtivo');
 
