@@ -35,14 +35,19 @@ Route::get('/teste', function () {
         libxml_use_internal_errors(true);
 
         $retorno = $client->ObterDeputados()->ObterDeputadosResult;
-        //print_r($client->ObterDeputados()->ObterDeputadosResult);
-        //print_r(simplexml_load_string($retorno->any));
-        //var_dump((htmlspecialchars($retorno->any)));
-        //var_dump((htmlentities($retorno->any)));
-        //$xml = new SimpleXMLElement(htmlspecialchars($retorno->any));
-        $xml = (simplexml_load_string($retorno->any));
-        var_dump($xml);
-        //dd($xml);
+
+        $DeputadosObj = simplexml_load_string('<xml>'.$retorno->any.'</xml>');
+        $json  = json_encode($DeputadosObj);
+        $listDeputados = json_decode($json, true);
+        $CollectDeputados = collect($listDeputados['deputados']['deputado']);
+        $deputadosSort = $CollectDeputados->sortBy('nome');
+
+        foreach ($deputadosSort as $item){
+            //print_r($item).'<br />';
+            echo $item['ideCadastro']. ' - ' .$item['nome'] .'<br />';
+        }
+
+
 
 
 
@@ -64,5 +69,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/grupos', 'GruposController@index')->name('grupos');
+Route::get('/planilha', 'PlanilhaController@index')->name('planilha');
 
 
