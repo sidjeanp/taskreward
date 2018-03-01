@@ -7,10 +7,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active">
+                        <li role="presentation" >
                             <a href="{{env('APP_URL')}}/home">Principal</a>
                         </li>
-                        <li role="presentation" >
+                        <li role="presentation" class="active">
                             <a href="{{env('APP_URL')}}/planilha">Planilha de tarefa</a>
                         </li>
                         <li role="presentation" >
@@ -30,12 +30,18 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    You are logged in!
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Cras justo odio</a>
+                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item">Morbi leo risus</a>
+                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    </div>
                 </div>
             </div>
         </div>
